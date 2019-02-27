@@ -1,0 +1,13 @@
+\begin{thebibliography}{1}\itemsep=-1pt
+
+\bibitem{CENreport}
+S.~K. Harikrishnan~NB, Vinayakumar~R.
+\newblock A machine learning approach towards phishing email detection.
+\newblock Technical report, Center for Computational Engineering and
+  Networking(CEN), 2018.
+
+\bibitem{diego}
+D.~Ocampo.
+\newblock https://github.com/diegoocampoh/machinelearningphishing, 2017.
+
+\end{thebibliography}
