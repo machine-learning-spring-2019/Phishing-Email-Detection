@@ -81,39 +81,44 @@ Email is a widely used and effective means of electronic communication, and it i
 
 ~\cite{diego} is an example of a phishing email detection machine learning algorithm that utilizes Rapid Miner. We plan to use a similar feature set but we will implement our algorithm with Python to provide greater flexibility in development. It also uses a dataset that was created in 2007. We will use a dataset available from ~\cite{monkey} that was created in 2018. If time allows we will implement TF-IDF as discussed in ~\cite{CENreport} as an additional feature.
 
+\pagebreak
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|c|c|c|l|l|}
+\hline
+TFIDF & Accuracy (\%) & Precision & Recall & F1-Score\\
+\hline
+Decision Tree & 96.5 & 0.832 & 0.837 & 0.835\\
+\hline
+KNN & 97.6 & 0.921 & 0.837 & 0.877\\
+\hline
+Logistic Regression & 96.8 & 0.986 & 0.704 & 0.821\\
+\hline
+Naive Bayes & 94.7 & 0.77 & 0.694 & 0.733\\
+\hline
+Random Forest& 97.1 & 1.0 & 0.719 & 0.837\\
+\hline
+AdaBoost & 97.7 & 0.927 & 0.842 & 0.882\\
+\hline
+SVM & 98.7 & 0.978 & 0.898 & 0.936\\
+\hline
+\end{tabular}
+\end{center}
+\caption{Results from ~\cite{CENreport}}
+\end{table}
+
+Table 1 shows some stuff about things
 
 %------------------------------------------------------------------------
 \section{Preliminary Plan}
 
 \begin{description}
-\item Convert latest .mbox from~\cite{monkey} to a .csv containing \\feature set
+\item Convert latest .mbox from~\cite{monkey} to a .csv containing feature set
 \item Design and implement Logistic Regression algorithm
 \item Design and implement SVM algorithm    
 \item Implement TF-IDF as an additional feature
 \end{description}
-
-\section{References}
-
-List and number all bibliographical references in 9-point Times,
-single-spaced, at the end of your paper. When referenced in the text,
-enclose the citation number in square brackets, for
-example~\cite{CENreport}.  Where appropriate, include the name(s) of
-editors of referenced books.
-
-\begin{table}
-\begin{center}
-\begin{tabular}{|l|c|}
-\hline
-Method & Frobnability \\
-\hline\hline
-Theirs & Frumpy \\
-Yours & Frobbly \\
-Ours & Makes one's heart Frob\\
-\hline
-\end{tabular}
-\end{center}
-\caption{Results.   Ours is better.}
-\end{table}
 
 
 {\small
