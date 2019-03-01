@@ -36,7 +36,7 @@
 \author{Kendra Maggiore\\
 Texas State University\\
 %Institution1 address\\
-{\tt\small firstauthor@i1.org}
+{\tt\small kmaggiore2012@gmail.com}
 % For a paper whose authors are all at the same institution,
 % omit the following lines up until the closing ``}''.
 % Additional authors and addresses can be added with ``\and'',
@@ -99,18 +99,24 @@ SVM & 98.7 & 0.978 & 0.898 & 0.936\\
 \caption{Results from ~\cite{CENreport}}
 \end{table}
 
-Table 1 shows some stuff about things
+Table 1 shows the findings of ~\cite{CENreport}. It can be seen that SVM yeilded the highest accuracy for their TF-IDF-based algorithm. As a result, we will focus on implementing SVM in our algorthm. Additionally we design and implement a logistic regression algorithm for comparision. 
 
 %------------------------------------------------------------------------
 \section{Preliminary Plan}
 
 \begin{description}
-\item Convert latest .mbox from~\cite{monkey} to a .csv containing feature set
-\item Design and implement Logistic Regression algorithm
-\item Design and implement SVM algorithm    
-\item Implement TF-IDF as an additional feature
+\item Coordinate with team members through Github: https://github.com/machine-learning-spring-2019/Phishing-Email-Detection
+\item Identify best feature set using ~\cite{diego} as a baseline.
+\item Convert latest .mbox from~\cite{monkey} to a .csv containing feature set.
+\item Design and implement Logistic Regression algorithm.
+\item Design and implement SVM algorithm.
+\subsection{Tenative Plans}
+The following will be added if time allows:
+\item Add TF-IDF to feature set.
+\item Design and implement additional algorithms studied in ~\cite{CENreport} and compare results.
+\item Use a URL's PhishTank classification~\cite{phish} as a feature.
 \end{description}
-
+\pagebreak
 
 {\small
 \bibliographystyle{ieee}
