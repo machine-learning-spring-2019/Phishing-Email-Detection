@@ -79,14 +79,14 @@ Email is a widely used and effective means of electronic communication, and it i
 %------------------------------------------------------------------------
 \section{Existing Solutions}
 
-~\cite{diego} is an example of a phishing email detection machine learning algorithm that utilizes Rapid Miner. We plan to use a similar feature set but we will implement our algorithm with Python to provide greater flexibility in development. It also uses a dataset that was created in 2007. We will use a dataset available from [3] that was created in 2018. If time allows we will implement TF-IDF as discussed in [1] as an additional feature.
+~\cite{diego} is an example of a phishing email detection machine learning algorithm that utilizes Rapid Miner. We plan to use a similar feature set but we will implement our algorithm with Python to provide greater flexibility in development. It also uses a dataset that was created in 2007. We will use a dataset available from ~\cite{monkey} that was created in 2018. If time allows we will implement TF-IDF as discussed in ~\cite{CENreport} as an additional feature.
 
 
 %------------------------------------------------------------------------
 \section{Preliminary Plan}
 
 \begin{description}
-\item Convert latest .mbox from [3] to a .csv containing \\feature set
+\item Convert latest .mbox from~\cite{monkey} to a .csv containing \\feature set
 \item Design and implement Logistic Regression algorithm
 \item Design and implement SVM algorithm    
 \item Implement TF-IDF as an additional feature
