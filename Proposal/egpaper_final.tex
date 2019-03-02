@@ -36,7 +36,7 @@
 \author{Kendra Maggiore\\
 Texas State University\\
 %Institution1 address\\
-{\tt\small firstauthor@i1.org}
+{\tt\small kam355@txstate.edu}
 % For a paper whose authors are all at the same institution,
 % omit the following lines up until the closing ``}''.
 % Additional authors and addresses can be added with ``\and'',
@@ -51,7 +51,7 @@ Texas State University\\
 James Knepper\\
 Texas State University\\
 %First line of institution2 address\\
-{\tt\small secondauthor@i2.org}
+{\tt\small jbk30@txstate.edu}
 }
 
 \maketitle
@@ -59,13 +59,7 @@ Texas State University\\
 
 %%%%%%%%% ABSTRACT
 \begin{abstract}
-   The ABSTRACT is to TEST be in fully-justified italicized text, at the top
-   of the left-hand column, below the author and affiliation
-   information. Use the word ``Abstract'' as the title, in 12-point
-   Times, boldface type, centered relative to the column, initially
-   capitalized. The abstract is to be in 10-point, single-spaced type.
-   Leave two blank lines after the Abstract, then begin the main text.
-   Look at previous CVPR abstracts to get a feel for style and length.
+   With the evolution of email as one of the primary means of communication, certain problems arise with exploitation such as Phishing.  This project will deal with the application of machine learning algorithms to detect phishing attacks.  The algorithms we will use are logistical regression and support vector machine.  These algorithms will be trained and tested on large data sets, and the results of such applications will be compared for accuracy and efficiency.  
 \end{abstract}
 
 %%%%%%%%% BODY TEXT
@@ -73,54 +67,56 @@ Texas State University\\
 
 Email is a widely used and effective means of electronic communication, and it is a commonly accepted method of contact between entities regardless of the specific field.  Since email is such a primary correspondence in the modern world, there are those who wish to exploit email service and its users.  A common exploitation technique of email services is known as Phishing.  Phishing is a major threat to today’s email communication.  In a Phishing attempt, a malicious entity will send an email to a user that appears to be legitimate.  The purpose of the email is to solicit the user to provide personal or sensitive information, often by containing a URL to an unsecure or malicious website.
 
-
-\begin{figure*}
-\begin{center}
-\fbox{\rule{0pt}{2in} \rule{.9\linewidth}{0pt}}
-\end{center}
-   \caption{Example of a short caption, which should be centered.}
-\label{fig:short}
-\end{figure*}
-
 %------------------------------------------------------------------------
 \section{Existing Solutions}
 
-~\cite{diego} is an example of a phishing email detection machine learning algorithm that utilizes Rapid Miner. We plan to use a similar feature set but we will implement our algorithm with Python to provide greater flexibility in development. It also uses a dataset that was created in 2007. We will use a dataset available from [3] that was created in 2018. If time allows we will implement TF-IDF as discussed in [1] as an additional feature.
+~\cite{diego} is an example of a phishing email detection machine learning algorithm that utilizes Rapid Miner. We plan to use a similar feature set but we will implement our algorithm with Python to provide greater flexibility in development. It also uses a dataset that was created in 2007. We will use a dataset available from ~\cite{monkey} that was created in 2018. If time allows we will implement TF-IDF as discussed in ~\cite{CENreport} as an additional feature.
 
+\pagebreak
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|c|c|c|l|l|}
+\hline
+TFIDF & Accuracy (\%) & Precision & Recall & F1-Score\\
+\hline
+Decision Tree & 96.5 & 0.832 & 0.837 & 0.835\\
+\hline
+KNN & 97.6 & 0.921 & 0.837 & 0.877\\
+\hline
+Logistic Regression & 96.8 & 0.986 & 0.704 & 0.821\\
+\hline
+Naive Bayes & 94.7 & 0.77 & 0.694 & 0.733\\
+\hline
+Random Forest& 97.1 & 1.0 & 0.719 & 0.837\\
+\hline
+AdaBoost & 97.7 & 0.927 & 0.842 & 0.882\\
+\hline
+SVM & 98.7 & 0.978 & 0.898 & 0.936\\
+\hline
+\end{tabular}
+\end{center}
+\caption{Results from ~\cite{CENreport}}
+\end{table}
+
+Table 1 shows the findings of ~\cite{CENreport}. It can be seen that SVM yeilded the highest accuracy for their TF-IDF-based algorithm. As a result, we will focus on implementing SVM in our algorthm. Additionally we design and implement a logistic regression algorithm for comparision. 
 
 %------------------------------------------------------------------------
 \section{Preliminary Plan}
 
 \begin{description}
-\item Convert latest .mbox from [3] to a .csv containing \\feature set
-\item Design and implement Logistic Regression algorithm
-\item Design and implement SVM algorithm    
-\item Implement TF-IDF as an additional feature
+\item Coordinate with team members through Github: https://github.com/machine-learning-spring-2019/Phishing-Email-Detection
+\item Identify best feature set using ~\cite{diego} as a baseline.
+\item Convert latest .mbox from~\cite{monkey} to a .csv containing feature set.
+\item Design and implement Logistic Regression algorithm.
+\item Design and implement SVM algorithm.
+\subsection{Tenative Plans}
+The following will be added if time allows:
+\item Add TF-IDF to feature set.
+\item Design and implement additional algorithms studied in ~\cite{CENreport} and compare results.
+\item Use a URL's PhishTank classification~\cite{phish} as a feature.
 \end{description}
-
-\section{References}
-
-List and number all bibliographical references in 9-point Times,
-single-spaced, at the end of your paper. When referenced in the text,
-enclose the citation number in square brackets, for
-example~\cite{CENreport}.  Where appropriate, include the name(s) of
-editors of referenced books.
-
-\begin{table}
-\begin{center}
-\begin{tabular}{|l|c|}
-\hline
-Method & Frobnability \\
-\hline\hline
-Theirs & Frumpy \\
-Yours & Frobbly \\
-Ours & Makes one's heart Frob\\
-\hline
-\end{tabular}
-\end{center}
-\caption{Results.   Ours is better.}
-\end{table}
-
+\pagebreak
 
 {\small
 \bibliographystyle{ieee}
