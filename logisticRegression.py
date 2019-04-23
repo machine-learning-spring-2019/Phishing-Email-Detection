@@ -14,21 +14,26 @@ good_data = pd.read_csv("./datasets/features-enron.csv")
 # Concatenate phish_data and good_data
 raw_data = pd.concat([phish_data,good_data],ignore_index=True)
 
-# Rearrange columns - Put "Phishy" as last col
-temp1 = raw_data.iloc[:, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13]]
-temp2 = raw_data.iloc[:, 12]
-raw_data = pd.concat([temp1, temp2],axis=1)
-
 # Transform strings in col 3 to ints
 le = LabelEncoder()
-le.fit(raw_data.iloc[:,3])
-raw_data.iloc[:,3] = le.transform(raw_data.iloc[:,3])
+le.fit(raw_data.Encoding)
+raw_data.Encoding = le.transform(raw_data.Encoding)
 
 # Convert all values to ints
 raw_data = raw_data.astype(int)
 
+# Feature columns in raw_data
+feature_cols = ["@ in URLs", "Attachments", "Css", "Encoding", "External Resources", "Flash content", "HTML content",
+"Html Form", "Html iFrame", "IPs in URLs", "Javascript", "URLs"]
+
+# Features
+X = raw_data[feature_cols]
+
+# Target variable
+y = raw_data.Phishy
+
 # Split data int train/test X/Y
-trainX, testX, trainY, testY = train_test_split(raw_data.iloc[:, :12] , raw_data.iloc[:, 12], test_size=.4, random_state=0)
+trainX, testX, trainY, testY = train_test_split(X, y, test_size=.4, random_state=0)
 
 # Logistic regression on Y1
 logi = LogisticRegression(random_state=0, solver="lbfgs", multi_class='multinomial',max_iter=300)
