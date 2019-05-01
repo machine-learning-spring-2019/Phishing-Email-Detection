@@ -36,12 +36,11 @@ y = raw_data.Phishy
 trainX, testX, trainY, testY = train_test_split(X, y, test_size=.4, random_state=0)
 
 # Logistic regression on Y1
-logi = LogisticRegression(random_state=0, solver="lbfgs", multi_class='multinomial',max_iter=300)
+logi = LogisticRegression(random_state=0, solver="lbfgs", multi_class='multinomial',max_iter=100)
 logi.fit(trainX, trainY)
 
-# Variance of algorithm
-yPred = logi.predict(testX)
-print('Variance score for Y1: %.2f' % r2_score(testY, yPred))
+# Score of algorithm
+print "Score: ", logi.score(testX, testY)
 
 # Cross validation
 predicted = cross_val_predict(logi, trainX, trainY, cv=5)
@@ -49,32 +48,32 @@ print "CV accuracy: ", accuracy_score(trainY, predicted)
 
 # Graph training score and cross-validation score
 
-#train_sizes, train_scores, test_scores = learning_curve(logi, trainX, trainY, n_jobs=-1, cv=5, train_sizes=np.linspace(.1, 1.0, 5), verbose=0)
-#
-#train_scores_mean = np.mean(train_scores, axis=1)
-#train_scores_std = np.std(train_scores, axis=1)
-#test_scores_mean = np.mean(test_scores, axis=1)
-#test_scores_std = np.std(test_scores, axis=1)
-#
-#plt.figure()
-#plt.title("Logistic Regression")
-#plt.legend(loc="best")
-#plt.xlabel("Training examples")
-#plt.ylabel("Score")
-#plt.gca().invert_yaxis()
-#
-## box-like grid
-#plt.grid()
-#
-## plot the std deviation as a transparent range at each training set size
-#plt.fill_between(train_sizes, train_scores_mean - train_scores_std, train_scores_mean + train_scores_std, alpha=0.1, color="r")
-#plt.fill_between(train_sizes, test_scores_mean - test_scores_std, test_scores_mean + test_scores_std, alpha=0.1, color="g")
-#
-## plot the average training and test score lines at each training set size
-#plt.plot(train_sizes, train_scores_mean, 'o-', color="r", label="Training score")
-#plt.plot(train_sizes, test_scores_mean, 'o-', color="g", label="Cross-validation score")
-#
-## sizes the window for readability and displays the plot
-## shows error from 0 to 1.1
-#plt.ylim(-.1,1.1)
-#plt.show()
+train_sizes, train_scores, test_scores = learning_curve(logi, trainX, trainY, n_jobs=-1, cv=5, train_sizes=np.linspace(.1, 1.0, 5), verbose=0)
+
+train_scores_mean = np.mean(train_scores, axis=1)
+train_scores_std = np.std(train_scores, axis=1)
+test_scores_mean = np.mean(test_scores, axis=1)
+test_scores_std = np.std(test_scores, axis=1)
+
+plt.figure()
+plt.title("Logistic Regression")
+plt.legend(loc="best")
+plt.xlabel("Training examples")
+plt.ylabel("Score")
+plt.gca().invert_yaxis()
+
+# box-like grid
+plt.grid()
+
+# plot the std deviation as a transparent range at each training set size
+plt.fill_between(train_sizes, train_scores_mean - train_scores_std, train_scores_mean + train_scores_std, alpha=0.1, color="r")
+plt.fill_between(train_sizes, test_scores_mean - test_scores_std, test_scores_mean + test_scores_std, alpha=0.1, color="g")
+
+# plot the average training and test score lines at each training set size
+plt.plot(train_sizes, train_scores_mean, 'o-', color="r", label="Training score")
+plt.plot(train_sizes, test_scores_mean, 'o-', color="g", label="Cross-validation score")
+
+# sizes the window for readability and displays the plot
+# shows error from 0 to 1.1
+plt.ylim(-.1,1.1)
+plt.show()
