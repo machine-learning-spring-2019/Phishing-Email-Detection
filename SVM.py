@@ -3,8 +3,8 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split, cross_val_predict, learning_curve
 from sklearn.metrics import r2_score, accuracy_score
-import matplotlib.pyplot as plt
-import numpy as np
+
+
 
 # Build data sets from mailbox .csv files
 phish_data = pd.read_csv("/Users/jamesknepper/Documents/MACHLEARN/group_project/phishing3.mbox-export.csv")
