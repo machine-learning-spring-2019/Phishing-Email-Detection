@@ -22,7 +22,7 @@ le = LabelEncoder()
 le.fit(raw_data.iloc[:,3])
 raw_data.iloc[:,3] = le.transform(raw_data.iloc[:,3])
 
-# Convert all values to ints
+# Convert all values to ints for model
 raw_data = raw_data.astype(int)
 
 # Split data int train/test X/Y
@@ -60,7 +60,7 @@ acc = history.history['acc']
 # Create count of the number of epochs
 epoch_count = range(1, len(loss) + 1)
 
-# Visualize loss history and accuracy
+# Visualize loss history
 plt.plot(epoch_count, loss, 'r--')
 plt.plot(epoch_count, acc, 'b-')
 plt.legend(['Loss', 'Accuracy'])
