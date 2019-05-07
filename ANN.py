@@ -1,6 +1,5 @@
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
-from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split, cross_val_predict, learning_curve
 from sklearn.metrics import r2_score, accuracy_score
 import matplotlib.pyplot as plt
@@ -61,7 +60,7 @@ acc = history.history['acc']
 # Create count of the number of epochs
 epoch_count = range(1, len(loss) + 1)
 
-# Visualize loss history
+# Visualize loss history and accuracy
 plt.plot(epoch_count, loss, 'r--')
 plt.plot(epoch_count, acc, 'b-')
 plt.legend(['Loss', 'Accuracy'])
